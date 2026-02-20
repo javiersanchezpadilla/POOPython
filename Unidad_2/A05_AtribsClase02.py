@@ -1,64 +1,34 @@
-""" ATRIBUTOS DE CLASE VS ATRIBUTOS DE INSTANCIA.
+""" DEFINICIÓN DE LOS ATRIBUTOS DE CLASE.
 
-    Repasemos las diferencias entre los atributos de clase y los atributos de
-    instancia.
+    Los atributos de clase pertenecen a una clase y no a una instancia 
+    concreta.
+    Todas las instancias de la clase tienen acceso a este atributo.
+    Ellos comparten el mismo valor, así que cualquier cambio a este valor 
+    afecta a todas las instancias.
+    Todos ellos comparten el mismo valor, así que cualquier cambio realizado 
+    a este valor afectará a todas las instancias.
 
+            class ClassName:
+	            # Atributos de clase
+	            def __init__ (self):
+	            # Métodos
 
-    ATRIBUTOS DE CLASE
-    ------------------
-    1) Pertenecen a la clase misma.
-    2) Cambiando su valor afectará todas las instancias de la clase, porque 
-       todas las instancias toman el valor de la misma fuente (la misma clase)
+*) Los atributos de clase pertenecen a la clase.
+*) Son compartidos por todas las instancias de la clase.
+*) Los atributos de clase se pueden utilizar para definir constantes a nivel 
+   de clase o valores predeterminados que debe compartirse entre todas las instancias.
 
-    ATRIBUTOS DE INSTANCIA.
-    -----------------------
-    1) Pertenecen a las instancias.
-    2) Cada instancia tiene sus propios, independientes copia de los atributos.
-    3) Cambiando su valor afectará solamente a las instancias particulares, 
-       las otras instancias no serán afectadas.
-
-
-    CUANDO USAR ATRIBUTOS DE CLASE.
-    -------------------------------
-    Los atributos de clase son de ayuda cuando necesitamos compartir un valor 
-    entre todas las instancias de una clase.
-
-    En el siguiente ejemplo contaremos las instancias de clase creadas
-    Cuando se crea e inicializa una nueva instancia, el valor actual de 
-    cliente_id se asigna a la id de la instancia y luego se incrementa en 1,
-    por lo que la siguiente instancia tendrá la identificación actualizada.
 """
 
-class Cliente:
+class PersonajeJuego:
+    # Definicion de los atributos de clase    
+    SALUD_POR_DEFECTO = 100
 
-    cliente_id = 0
-
-    def __init__(self, nombre):
-        self.nombre = nombre
-        self.id = Cliente.cliente_id 
-        Cliente.cliente_id += 1 
+    # Definición de los atributos de instancia
+    def __init__(self, tipo_caracter):
+        self.tipo_caracter = tipo_caracter
+        self.salud = PersonajeJuego.SALUD_POR_DEFECTO
 
 
-c1 = Cliente('Juan')
-c2 = Cliente('Pedro')
-c3 = Cliente('Karla')
-
-print(c1.id, c1.nombre)
-print(c2.id, c2.nombre)
-print(c3.id, c3.nombre)
-
-print('Total de instancias creadas:', Cliente.cliente_id)
-print('Total de instancias creadas:', c1.cliente_id)
-print('Total de instancias creadas:', c2.cliente_id)
-print('Total de instancias creadas:', c3.cliente_id)
-
-# Como el atributo de clase es compartido con todas las instancias
-# al momento de ser modificado cambiará para todos los objetos.
-Cliente.cliente_id = 100
-c4 = Cliente('Susana')
-print(c4.id, c4.nombre)
-
-print('Total de instancias creadas:', Cliente.cliente_id)
-print('Total de instancias creadas:', c1.cliente_id)
-print('Total de instancias creadas:', c2.cliente_id)
-print('Total de instancias creadas:', c3.cliente_id)
+a = PersonajeJuego('Mago')
+print('Tipo de caracter:', a.tipo_caracter, 'Nivel de vida:', a.salud)

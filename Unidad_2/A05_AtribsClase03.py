@@ -1,24 +1,64 @@
-""" Elaboraremos el mismo ejemplo donde se explico el uso de self
-    la diferencia es que ahora usaremos un atributo de clase"""
+""" ATRIBUTOS DE CLASE VS ATRIBUTOS DE INSTANCIA.
 
-class Perro:
+    Repasemos las diferencias entre los atributos de clase y los atributos de
+    instancia.
 
-    numero_instancias = 0
+
+    ATRIBUTOS DE CLASE
+    ------------------
+    1) Pertenecen a la clase misma.
+    2) Cambiando su valor afectará todas las instancias de la clase, porque 
+       todas las instancias toman el valor de la misma fuente (la misma clase)
+
+    ATRIBUTOS DE INSTANCIA.
+    -----------------------
+    1) Pertenecen a las instancias.
+    2) Cada instancia tiene sus propios, independientes copia de los atributos.
+    3) Cambiando su valor afectará solamente a las instancias particulares, 
+       las otras instancias no serán afectadas.
+
+
+    CUANDO USAR ATRIBUTOS DE CLASE.
+    -------------------------------
+    Los atributos de clase son de ayuda cuando necesitamos compartir un valor 
+    entre todas las instancias de una clase.
+
+    En el siguiente ejemplo contaremos las instancias de clase creadas
+    Cuando se crea e inicializa una nueva instancia, el valor actual de 
+    cliente_id se asigna a la id de la instancia y luego se incrementa en 1,
+    por lo que la siguiente instancia tendrá la identificación actualizada.
+"""
+
+class Cliente:
+
+    cliente_id = 0
 
     def __init__(self, nombre):
-        self.nombre = nombre 
-        Perro.numero_instancias += 1 
-        self.numero = Perro.numero_instancias
-        print(f'Dirección de memoria {Perro.numero_instancias}, de la instancia {self}')
+        self.nombre = nombre
+        self.id = Cliente.cliente_id 
+        Cliente.cliente_id += 1 
 
 
-perro1 = Perro('firulais')
-perro2 = Perro('max')
-perro3 = Perro('carnicero')
-perro4 = Perro('canelo')
+c1 = Cliente('Juan')
+c2 = Cliente('Pedro')
+c3 = Cliente('Karla')
 
-print('\n Imprimimos el numero de objeto con su dirección de memoria')
-print('Perro1=', perro1.numero, '-', perro1.nombre, 'Memoria:', hex(id(perro1)))
-print('Perro2=', perro2.numero, '-', perro2.nombre, 'Memoria:', hex(id(perro2)))
-print('Perro3=', perro3.numero, '-', perro3.nombre, 'Memoria:', hex(id(perro3)))
-print('Perro4=', perro4.numero, '-', perro4.nombre, 'Memoria:', hex(id(perro4)))
+print(c1.id, c1.nombre)
+print(c2.id, c2.nombre)
+print(c3.id, c3.nombre)
+
+print('Total de instancias creadas:', Cliente.cliente_id)
+print('Total de instancias creadas:', c1.cliente_id)
+print('Total de instancias creadas:', c2.cliente_id)
+print('Total de instancias creadas:', c3.cliente_id)
+
+# Como el atributo de clase es compartido con todas las instancias
+# al momento de ser modificado cambiará para todos los objetos.
+Cliente.cliente_id = 100
+c4 = Cliente('Susana')
+print(c4.id, c4.nombre)
+
+print('Total de instancias creadas:', Cliente.cliente_id)
+print('Total de instancias creadas:', c1.cliente_id)
+print('Total de instancias creadas:', c2.cliente_id)
+print('Total de instancias creadas:', c3.cliente_id)

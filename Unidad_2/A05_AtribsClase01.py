@@ -17,18 +17,25 @@
 *) Son compartidos por todas las instancias de la clase.
 *) Los atributos de clase se pueden utilizar para definir constantes a nivel 
    de clase o valores predeterminados que debe compartirse entre todas las instancias.
-
 """
 
-class PersonajeJuego:
-    # Definicion de los atributos de clase    
-    SALUD_POR_DEFECTO = 100
+# Creación de los atributos de una clase.
+class Perro:
 
-    # Definición de los atributos de instancia
-    def __init__(self, tipo_caracter):
-        self.tipo_caracter = tipo_caracter
-        self.salud = PersonajeJuego.SALUD_POR_DEFECTO
+    especie = "Canis lupus"
+
+    def __init__ (self, nombre, edad, raza):
+        self.nombre = nombre
+        self.edad = edad
+        self.raza = raza
 
 
-a = PersonajeJuego('Mago')
-print('Tipo de caracter:', a.tipo_caracter, 'Nivel de vida:', a.salud)
+class Mochila:
+
+    num_max_artics = 10
+
+    def __init__(self):
+        self.articulos = []
+
+print(Perro.especie)
+print(Mochila.num_max_artics)
