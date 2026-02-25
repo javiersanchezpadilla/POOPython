@@ -16,15 +16,15 @@ class NaveEnemiga:
 
 
 def muestra_naves(las_naves):
-    for nave in las_naves:
-        print(f'Posicion nave {naves_enemigas.index(nave)+1} es ({nave.x}, {nave.y})')
-
+    for num_nave, nave in enumerate(las_naves, start=1):
+        # print(f'Posicion nave {naves_enemigas.index(nave)+1} es ({nave.x}, {nave.y})')
+        print(f'Nave {num_nave} = ({nave.x}, {nave.y})')
 
 def avanza_naves(las_naves):
     print('Las naves estan avanzando')
     for nave in las_naves:
-        nave.x += random.randint(nave.min_mov,nave.max_mov)
-        nave.y += random.randint(nave.min_mov,nave.max_mov)
+        nave.x += random.randint(nave.min_mov, nave.max_mov)
+        nave.y += random.randint(nave.min_mov, nave.max_mov)
 
 
 n1 = NaveEnemiga(0, 0)

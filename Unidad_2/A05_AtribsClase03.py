@@ -35,9 +35,9 @@ class Cliente:
 
     def __init__(self, nombre):
         self.nombre = nombre
-        self.id = Cliente.cliente_id 
         Cliente.cliente_id += 1 
-
+        self.id = Cliente.cliente_id 
+        
 
 c1 = Cliente('Juan')
 c2 = Cliente('Pedro')
