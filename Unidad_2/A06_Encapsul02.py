@@ -1,34 +1,48 @@
-""" Atributos no públicos (Non-Public attribute)
+""" Dinamica para los alumnos: 
+    ¿Qué datos de un usuario de una Red Social deberían ser públicos,
+    protegidos o privados?
 
-    Es un atributo que no deberá se accedido o moficidado desde
-    afuera de la clase.
-    En Python no existe el terminó Atributi privado, por eso
-    es no público.
+    Se trata de una tabla donde ellos deben decidir la "visibilidad" 
+    de los datos de un usuario en una Red Social.
 
-                +-- Por convencion  -------------->  _<atributo>
-                |
-    Non Public  |
-                |
-                |   Cambiando el nombre
-                +-- (lo hace un poco mas
-                    dificil de acceder) ----------> __<atributo>
-                    NAME MANGLING                Solo para casos especiales
+    -----------------------------------------------------------------------------------        
+                                                                        Sugerencia 
+    Atributo                ¿Quién debería tocarlo?                     de Formato
+    -----------------------------------------------------------------------------------                                                                    
+    Alias (Nickname)        Cualquier otro usuario que vea el perfil    self.alias
+    Email                   Solo procesos internos .                    self._email
+                            (como enviar notificaciones)
+    Contraseña              Nadie, es un dato crítico del sistema.      self.__password
+    Intentos de Login       Solo el sistema de seguridad de la app.     self.__intentos
+    Biografía               El público en general.                      self.bio
+    ID de Base de Datos     La infraestructura técnica del servidor.    self.__db_id
 
-                    
-    Se entiende que cuando un programador ve dentro del código que uno de los
-    atributos tiene un guión bajo, significa que no debe cambiar su valor 
-    (aunque si es posible), por otro lado existe el cambio de nombre usando 
-    doble guión bajo, sin embargo esta segunda opción solo debe usarse en casos 
-    especiales.
-
-    ¿por qué seguimos utilizando el término público en lugar de privado?
-    -------------------------------------------------------------------- 
-    si ya has aprendido a trabajar con otros lenguajes de programación como Java, 
-    verá comúnmente el término privado. Pero aquí estamos utilizando el término 
-    no público.
-    En Python, no usamos el término privado, ya que ningún atributo es realmente 
-    privado en Python.
-                
+    Preguntas de reflexión para los alumnos:
+    ----------------------------------------
+    1)  ¿Por qué el _email sí se pudo leer pero el __password no?
+        Porque el guion bajo simple es solo un aviso de "caballeros", mientras 
+        que el doble guion bajo activa el "Name Mangling" que esconde el 
+        nombre real.
+    2)  Si el alias es público, ¿qué pasa si alguien lo cambia a "NombreOfensivo"?
+        Como es público, cualquiera puede hacer user1.alias = "Malo". Aquí es donde 
+        les puedes adelantar que en el futuro usaremos métodos para validar que 
+        nadie ponga nombres prohibidos.
 """
 
-# Voy en el apunto C01_Encapsulamiento leccion de estefania 58
+class Usuario:
+    def __init__(self, alias, email, password):
+        self.alias = alias          # Público
+        self._email = email        # Protegido
+        self.__password = password  # Privado
+
+user1 = Usuario("PythonMaster", "profe@mail.com", "123456")
+
+# Intentos de acceso desde afuera de la clase:
+                        # ✅ FUNCIONA
+print(f"Viendo perfil de: {user1.alias}")      
+
+                        # ⚠️ FUNCIONA (pero el guion bajo avisa que no deberías)
+print(f"Correo de contacto: {user1._email}")   
+
+                        # ❌ ERROR: AttributeError
+print(f"Password: {user1.__password}")         
