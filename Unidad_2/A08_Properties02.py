@@ -31,6 +31,7 @@ class Circulo:
         
     color = property(get_color, set_color)
 
+
 circulo01 = Circulo(10, 'Rojo')
 print(f'Valores radio {circulo01.radio}, color= {circulo01.color}')
 circulo01.radio = 20
