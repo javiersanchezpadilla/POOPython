@@ -1,5 +1,7 @@
-""" Este ejempo se resolvio anteriormente solo con la propiedad
-    property, ahora se resolvera con decoradores"""
+""" CReamos una clase Pelota resolviendo con properties
+
+    este mismo ejemplo se resuelve mas ademante mediante decoradores
+"""
 
 class Pelota:
 
@@ -8,30 +10,27 @@ class Pelota:
         self._tamanio = tamanio
         self._marca = marca
 
-    @property
-    def precio(self):
+    def get_precio(self):
         return self._precio
     
-    @precio.setter
-    def precio(self, new_precio):
+    def set_precio(self, new_precio):
         self._precio = new_precio
 
-    @property
-    def tamanio(self):
+    def get_tamanio(self):
         return self._tamanio
     
-    @tamanio.setter
-    def tamanio(self, new_tamanio):
+    def set_tamanio(self, new_tamanio):
         self._tamanio = new_tamanio
 
-    @property
-    def marca(self):
+    def get_marca(self):
         return self._marca
     
-    @marca.setter
-    def marca(self, new_marca):
+    def set_marca(self, new_marca):
         self._marca = new_marca
 
+    precio = property(get_precio, set_precio)
+    tamanio = property(get_tamanio, set_tamanio)
+    marca = property(get_marca, set_marca)
 
 my_pelota = Pelota(10, 10, "Gada")
 print(my_pelota.precio)

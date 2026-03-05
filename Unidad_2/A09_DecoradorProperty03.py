@@ -1,28 +1,24 @@
-"""
+""" Atributos de "Solo Lectura": 
 
-    Los decoradores son sorprendentes, obtenemos la misma funcionalidad que 
-    cuando utilizamos la función de propiedad (property), pero con una sintaxis 
-    mucho más concisa.
-    Sólo tenemos que escribir añadir propiedad y un proceso especial se iniciará 
-    entre bastidores.
-
-    ¿QUÉ ES UN DECORADOR?  
-
-    Un decorador es básicamente una función que toma una función como argumento 
-    y amplía su comportamiento sin modificarla explícitamente.
-    Por eso lo llamamos decorador, es algo así cómo decorar otra función ampliando 
-    su comportamiento, pero no modifica explícitamente la función, sólo añade algo 
-    más de sabor o funcionalidad a la función.
-    También utilizaremos el nombre de la propiedad si utilizamos el decorador Añadir 
-    propiedad, así evitamos añadir nuevos nombres como el nombre del getter y el 
-    nombre del setter a nuestra lista de nombres válidos en la clase.
-
-    GETTER.
-
-            @property
-            def property_name(self):
-                return self._property_name
+    Si creas un @property pero no creas su .setter,
+    el atributo se vuelve imposible de cambiar desde fuera.
 
 """
+class Movie:
 
-# VOY EN LA LECCION 75 THE @PROPERTY DECORATOR
+    def __init__(self, titulo, valoracion):
+        self.titulo = titulo
+        self._valoracion = valoracion
+
+    @property
+    def valoracion(self):
+        print("Estoy en el getter")
+        return self._valoracion
+    
+
+mi_pelicula = Movie("Titanic", 4.3)
+print(mi_pelicula.valoracion)
+mi_pelicula.valoracion = 1.2        # ERROR No existe el setter
+print(mi_pelicula.valoracion)
+
+

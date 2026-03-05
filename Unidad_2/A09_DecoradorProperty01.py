@@ -36,6 +36,27 @@
     **) Atributos de "Solo Lectura": Si creas un @property pero no creas su .setter,
         el atributo se vuelve imposible de cambiar desde fuera.
         =============================================================================+
+
+    SINTAXIS:
+    Cuando creamos la propiedad (nombre_propiedad), lo que está abajo de @property, 
+    deberá seguir usandose el mismo nombre para el setter, esto es, que el setter
+    se debe declarar @nombre_propiedad.setter, y el método asociado tambien debe
+    tener el nombre de la propiedad (nombre_propiedad)
+
+    class Sintaxis:
+
+        def __init__(self, atributo):
+            self._atributo = atributo   <-- Atributo no público declarado
+
+    @property
+    def <nombre_propiedad>(self):       <-- Creación de la propiedad 'nombre_propiedad'
+        return self._atributo           <-- retornamos el atributo protegido
+
+                                        <-- usamos el mismo nombre de arriba
+    @nombre_propiedad.setter            <-- @nombre_propiedad.setter
+    def <nombre_propiedad>(self, nuevo_valor_atributo): <-- La fn se debe llamar igual
+        self._atributo = nuevo_valor_atributo
+
 """
 
 class Producto:
