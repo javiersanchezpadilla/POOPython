@@ -19,9 +19,14 @@
 
     En este ejemplo:
     1)  texto.strip() elimina los espacios en blanco al inicio y al final de la 
-        cadena.
-    2)  upper() convierte todas las letras a mayúsculas.
-    3)  split() divide la cadena en una lista de palabras.
+        cadena, Toma el string original, le quita los espacios y devuelve un 
+        nuevo string ("Hola, mundo!").
+    2)  upper() convierte todas las letras a mayúsculas, Se ejecuta sobre el 
+        resultado anterior. Convierte el texto a mayúsculas y devuelve otro 
+        string ("HOLA, MUNDO!").
+    3)  split() divide la cadena en una lista de palabras, Se ejecuta sobre el 
+        string en mayúsculas. Corta el texto por los espacios y devuelve una 
+        lista (['HOLA,', 'MUNDO!']).
 
     Todo esto se logra en una sola línea, gracias al encadenamiento de métodos.
 
