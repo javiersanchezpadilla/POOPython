@@ -1,5 +1,11 @@
 """ Este ejempo se resolvio anteriormente solo con la propiedad
-    property, ahora se resolvera con decoradores"""
+    property, ahora se resolvera con decoradores
+    
+    Recursión Infinita: Si dentro del setter de precio escriben 
+    self.precio = new_precio en lugar de self.__precio = new_precio, el 
+    programa entrará en un bucle infinito y se detendrá con un RecursionError. 
+    Es el error más común al aprender @property.
+    """
 
 class Pelota:
 
