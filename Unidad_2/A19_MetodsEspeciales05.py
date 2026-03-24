@@ -28,6 +28,12 @@ mi_diccionario = {"a":1, "b":2, "c":3, "d":4}
 print('\nLa longitud de mi diccionario', len(mi_diccionario))
 print('La longitud de mi diccionario', mi_diccionario.__len__())
 
+mi_conjunto = {1, 1, 1, 2, 3, 4, 2, 2, 2, 3, 4, 5, 1, 1, 1, 1}
+print('\nTrabjaremos con los conjuntos')
+print(mi_conjunto)
+print('La longitud de mi conjunto', len(mi_conjunto))
+print('La longitud de mi conjnuto', mi_conjunto.__len__())
+
 # Para el ejemplo de la mochila
 class Mochila:
 

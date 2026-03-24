@@ -7,8 +7,8 @@ class Estante:
     def __init__(self):  
         #  ubicacion donde esta localizado el libro
         self.contenido = [[],   # 1 es el Primer nivel
-                        [],     # 2 es el Segundo nivel
-                        []]     # 3 es el Tercer nivel
+                          [],   # 2 es el Segundo nivel
+                          []]   # 3 es el Tercer nivel
         
     def agregar_libro(self, libro, ubicacion):
         self.contenido[ubicacion].append(libro)
