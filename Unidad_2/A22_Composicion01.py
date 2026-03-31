@@ -98,6 +98,3 @@ print(empleado01.vehiculo.es_electrico)
 
 # Llamando metodos de forma indirecta
 empleado01.vehiculo.muestra_placa()
-
-
-

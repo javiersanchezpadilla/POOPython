@@ -46,10 +46,10 @@ class Vehiculo:
         self.placas = placas
         self.es_electrico = es_electrico
 
-    def muestra_placa(self):
+    def mostrar_placa_vehiculo(self):
         print(self.placas)
 
-    def muestra_info(self):
+    def mostrar_info_vehiculo(self):
         print("Mi carrito:")
         print(f"Color: {self.color}")
         print(f"Placas: {self.placas}")
@@ -63,8 +63,8 @@ class Empleado:
         self.nombre = nombre
         self.vehiculo = vehiculo
         
-    def muestra_info_vehiculo(self):
-        self.vehiculo.muestra_info()
+    def mostrar_info_vehiculo_empleado(self):
+        self.vehiculo.mostrar_info_vehiculo()
 
 
 # podemos especificar el nombre del argumento con el parametro para hacerlo mas
@@ -72,17 +72,41 @@ class Empleado:
 carrito01 = Vehiculo("White", "XYZ 123", es_electrico=False)
 empleado01 = Empleado("Jorge", carrito01)
 
+# Ejecutamos el método mostrar_info_vehiculo_empleado
+empleado01.mostrar_info_vehiculo_empleado()
+
+# Mostramos los atributos de instancia del empleado
+print('NOmbre del empleado', empleado01.nombre)
+print(empleado01.vehiculo)
+# Esto no es posible debido a que no existe dentro de la clase Emplado un 
+# atributo llamado carrito01
+# print(empleado01.carrito01)
+
+# Accedemos a los atributos de la clase Vehiculo
+# esto quiere decir que accedemos a los atributos de instancia
+# de la clase vehiculo indirectamente
+print('El color del vehiculo es:', empleado01.vehiculo.color)
+print('Es electrico', empleado01.vehiculo.es_electrico)
+print('Placas:', empleado01.vehiculo.placas)
+
+# Accedemos a los métodos de la clase Vehiculo a traves del
+# atributo de clase
+empleado01.vehiculo.mostrar_placa_vehiculo()
+empleado01.vehiculo.mostrar_info_vehiculo()
+
+# print('Color asignado', empleado01.vehiculo.color)
+# print('Las placas son:', empleado01.vehiculo.placas)
+# print('Es electrico:', empleado01.vehiculo.es_electrico)
+
+
+"""
 print(empleado01.nombre)
 print(empleado01.vehiculo)
 # Podemos de forma indirecta llamar a los métodos de la instancia agregada
 # sin el intermediario del nombre de la instancia
-empleado01.muestra_info_vehiculo()
-
-# Llamando atributos indirectamente
-print(empleado01.vehiculo.color)
-print(empleado01.vehiculo.placas)
-print(empleado01.vehiculo.es_electrico)
+empleado01.mostrar_info_vehiculo_empleado()
 
 # Llamando metodos de forma indirecta
-empleado01.vehiculo.muestra_placa()
+empleado01.vehiculo.mostrar_placa_vehiculo()
 
+"""

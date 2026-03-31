@@ -30,4 +30,14 @@
     poder usarlo.
     Es una relación entre las clases, un objeto de clase B tiene un objeto de clase A,
     estamos usando la funcionalidad de A dentro de B.
+
+    COMO ENTENDER AGREGACIÓN Y COMPOSICIÓN.
+    =======================================
+        Relación                                ¿Qué pasa si borramos el Objeto A?          ¿Es Agregación o Composición?
+    -----------------------------------------------------------------------------------------------------------------
+    A: Librero / B: Libros                  ¿Los libros siguen existiendo?                          Agregación
+    A: Edificio / B: Pisos                  ¿Los pisos pueden existir sin el edificio?              Composición
+    A: Equipo de Fútbol / B: Jugadores      ¿Los jugadores pueden irse a otro equipo?               Agregación
+    A: Bosque / B: Árboles                  ¿Si quemamos el bosque, quedan los árboles?"            Composición 
+    A: Computadora / B: Monitor Externo     ¿El monitor funciona en otra PC?                        Agregación
 """
