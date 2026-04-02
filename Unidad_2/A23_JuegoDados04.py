@@ -1,8 +1,8 @@
-""" DESARROLLO DE LA CLASE JUGAR PART 1
-"""
+""" DESARROLLO DEL JUEGO"""
 
 import random
 # Pondremos a prueba el concepto de agregación
+
 
 class Dado:
 
@@ -19,7 +19,6 @@ class Dado:
         return nuevo_valor
 
     
-
 class Jugador:
 
     # los atributos seran solo de lectura
@@ -68,43 +67,35 @@ class JuegoDeDados:
         print('==============================')
         while True:
             self.jugar_partida()
-
+            juego_terminado = self.checa_fin_de_juego()
+            if juego_terminado:
+                break
 
     def jugar_partida(self):
         # Bienvenida al ususario
-        print('--------------- Nueva Partida --------------')
-        input('Oprime cualquier tecla para aventar el dado ')
+        self.mostrar_bienvenida_juego()
 
-        # Aventando los datos
+        # Aventando los datos, llamamos indirectamente el método
+        # rueda_el_dato() de la clase dato (agregación)
         puntos_jugador = self._jugador.rueda_el_dado()
         puntos_computadora = self._computadora.rueda_el_dado()
+
+        # mostramos los valores de los dados
+        self.muestra_contadores()
 
         # Mostrando los valores de los dados
         print(f'Tu dado {puntos_jugador}')
         print(f'dado de la computadora {puntos_computadora}')
 
-        # DEterminar el ganador y el perdedor
+        # Determinar el ganador y el perdedor
         if puntos_jugador > puntos_computadora:
             print('Ganaste el round!!')
-            self._jugador.decrementar_contador()    # ganador
-            self._computadora.incrementar_contador()  # perdedor
+            self.actualiza_contadores(ganador=self._jugador, perdedor=self._computadora)
         elif puntos_computadora > puntos_jugador:
             print('La computadora gano este round, intenta de nuevo')
-            self._computadora.decrementar_contador()  # ganador
-            self._jugador.incrementar_contador()    # perdedor
+            self.actualiza_contadores(ganador=self._computadora, perdedor=self._jugador)
         else:
             print('Es un empate')
-
-
-
-        # Esto es lo nuevo ******************************
-
-        # Mostrando los contadores
-        print(f'Tu contador: {self._jugador.contador}')
-        print(f'Contador de la computadora: {self._computadora.contador}')
-
-        # Mostrando los contadores
-        self.muestra_contadores()
 
     # Metodo para darla bienvenida
     def mostrar_bienvenida_juego(self):
@@ -116,29 +107,29 @@ class JuegoDeDados:
         print(f'Tu dado {valor_jugador}')
         print(f'dado de la computadora {valor_computadora}')
 
-    # afecta los contadores del perdedor y disminuye el del ganador
+    # afecta los contadores del perdedor(le suma 1) y del ganador (le resta 1)
     def actualiza_contadores(self, ganador, perdedor):
         ganador.decrementar_contador()
         perdedor.incrementar_contador()
 
-    # Mostrar los contadores
+    # # Mostrar los contadores
     def muestra_contadores(self):
         print(f'Tu contador: {self._jugador.contador}')
-        print(f'Contador de la computadora: {self._computadora.contador}')
+        print(f'Contador de la computadora: {self._computadora.contador}')    
 
     # Verifica el fin del juego
     def checa_fin_de_juego(self):
         if self._jugador.contador == 0:
             self.muestra_juego_terminado(self._jugador)
             return True
-        elif self._computer.contador == 0:
+        elif self._computadora.contador == 0:
             self.muestra_juego_terminado(self._computadora)
             return True
         else:
             return False
         
     def muestra_juego_terminado(self, ganador):
-        if ganador.is_computer:
+        if ganador._es_la_computadora:
             print("\n====================")
             print("  G A M E   O V E R")
             print("=====================")
@@ -150,16 +141,17 @@ class JuegoDeDados:
             print("=====================")
             print("Ganaste el juego, felicidades!!!!")
             print("=================================")
-        
 
-# Creando instancias
+
+
+# Creando instancias de los dados
 dado_jugador = Dado()
 dado_computadora = Dado()
 
+# Creamos las instalcias de los jugadores
 juego_humano = Jugador(dado_jugador, es_la_computadora=False)
 juego_computadora = Jugador(dado_computadora, es_la_computadora=True)
 
+# Creamos la instncia del juego
 game = JuegoDeDados(juego_humano, juego_computadora)
-
-# Iniciamos el juego
-game.jugar()
+game.jugar()                                # Iniciamos el juego

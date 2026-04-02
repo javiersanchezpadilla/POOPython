@@ -68,14 +68,15 @@ class JuegoDeDados:
         print('==============================')
         while True:
             self.jugar_partida()
-
+            # implementar Game Over!!
 
     def jugar_partida(self):
         # Bienvenida al ususario
         print('--------------- Nueva Partida --------------')
         input('Oprime cualquier tecla para aventar el dado ')
 
-        # Aventando los datos
+        # Aventando los datos, llamamos indirectamente el método
+        # rueda_el_dato() de la clase dato (agregación)
         puntos_jugador = self._jugador.rueda_el_dado()
         puntos_computadora = self._computadora.rueda_el_dado()
 
@@ -83,15 +84,15 @@ class JuegoDeDados:
         print(f'Tu dado {puntos_jugador}')
         print(f'dado de la computadora {puntos_computadora}')
 
-        # DEterminar el ganador y el perdedor
+        # Determinar el ganador y el perdedor
         if puntos_jugador > puntos_computadora:
             print('Ganaste el round!!')
-            self._jugador.decrementar_contador()    # ganador
-            self._computadora.incrementar_contador()  # perdedor
+            self._jugador.decrementar_contador()        # ganador
+            self._computadora.incrementar_contador()    # perdedor
         elif puntos_computadora > puntos_jugador:
             print('La computadora gano este round, intenta de nuevo')
-            self._computadora.decrementar_contador()  # ganador
-            self._jugador.incrementar_contador()    # perdedor
+            self._computadora.decrementar_contador()    # ganador
+            self._jugador.incrementar_contador()        # perdedor
         else:
             print('Es un empate')
 
