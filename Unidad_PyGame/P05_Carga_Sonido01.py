@@ -1,57 +1,32 @@
-""" CARGAR IMAGENES DENTRO DE LOS RECTANGULOS.
+""" CARGAR SONIDOS DENTRO DEL JUEGO (SOLO EFECTOS DE SONIDO RAPIDOS).
 
-    Cambiar los cuadros de colores por imágenes reales (sprites) es el 
-    momento en el que el proyecto deja de parecer un 'ejercicio de clase' 
-    y empieza a verse como un videojuego de verdad.
+    En Pygame, el sonido y el texto se manejan como objetos, lo que encaja 
+    perfectamente con el enfoque de POO que hemos estado trabajando.
 
-    En la Programación Orientada a Objetos, esto es muy sencillo porque 
-    solo tenemos que modificar el atributo self.image de nuestra clase.
+    1. El Sonido (El objeto Sound)
+    ------------------------------
+    A)  Para efectos rápidos (disparos, explosiones, saltos), usamos 
+    
+            pygame.mixer.Sound. 
+            
+        Es muy ligero y se carga una sola vez en el __init__.
 
-    1. Preparación: Cargar la imagen
-    --------------------------------
-    Para que el juego no se vuelva lento, Pygame recomienda cargar la imagen 
-    una sola vez y convertirla al formato interno de la tarjeta de vídeo usando 
-    .convert_alpha().
-
-    Instrucción clave:
-    ------------------
-
-                self.image = pygame.image.load("nave.png").convert_alpha()
-
-    2. Modificando la clase Jugador
-    -------------------------------
-    Vamos a actualizar el constructor para que, en lugar de crear un Surface 
-    vacío de color, cargue un archivo.
-
-    3. El "Secreto" del Rect con imágenes reales
-    --------------------------------------------
-    Aquí es donde se vr el poder de la POO. Al usar self.image.get_rect(), 
-    Pygame mide los píxeles de la imagen (por ejemplo, una nave de 60x60) y 
-    crea el "marco" exacto.
-
-    ¿Qué pasa con la colisión?
-    --------------------------
-    Lo mejor es que la línea de colisión (spritecollide) sigue funcionando 
-    exactamente igual. No importa si el objeto es un cuadro verde o un 
-    dragón hiperrealista; Pygame seguirá usando el rect para detectar el 
-    choque.
+    B)  Para música de fondo larga, se usa 
+    
+            pygame.mixer.music.load()
+        
+        pero para efectos cortos de interacción, siempre usamos objetos Sound.
 """
 
 import pygame
 
 class Jugador(pygame.sprite.Sprite):
-    def __init__(self, color, x, y, velocidad=5):
+    def __init__(self, ruta_imagen, x, y, velocidad=5):
         super().__init__()
 
-        # 1. Cargamos la imagen real
-        # self.image = pygame.Surface((50, 50))
-        # self.image.fill(color)
         self.image = pygame.image.load(ruta_imagen).convert_alpha()
+        self.image = pygame.transform.scale(self.image, (40, 60))
         
-        # 2. Opcional: Escalar la imagen si es muy grande
-        self.image = pygame.transform.scale(self.image, (60, 60))
-        
-        # 3. El rect se ajusta automáticamente al tamaño de la imagen cargada
         self.rect = self.image.get_rect()
         self.rect.center = (x, y)
         self.velocidad = velocidad
@@ -74,9 +49,8 @@ class Jugador(pygame.sprite.Sprite):
             
             
 class Enemigo(Jugador):
+    
     def __init__(self, color, x, y, velocidad=3):
-        # Llamamos al constructor de Jugador para que configure el color 
-        # y posición
         super().__init__(color, x, y, velocidad)
         self.direccion = 1 # 1 para derecha, -1 para izquierda
 
@@ -92,12 +66,32 @@ class Enemigo(Jugador):
 class MiJuego:
     def __init__(self):
         pygame.init()
+
+        # ************************************
+        # 1. Inicializamos el sistema de audio
+        # *************************************
+        pygame.mixer.init()
+        # **********************************************
+        # 2. Cargamos los efectos de sonido (Agregación)
+        # **********************************************
+        ruta_sonidos = '/home/javier/Documentos/Programas/Python/'\
+                       'GraficPython/MIS_CLASES/Unidad_4/PNGs/Sonidos/'
+        self.sonido_explosion = pygame.mixer.Sound(ruta_sonidos+'explosion.mp3')
+        self.sonido_disparo = pygame.mixer.Sound(ruta_sonidos+'laser.mp3')
+
+        # **************************************************
+        # 3. Ajustamos el volumen de los efectos de sonido
+        # **************************************************
+        self.sonido_explosion.set_volume(0.5) # Volumen de 0 a 1
+        self.sonido_disparo.set_volume(0.5)
+
         self.ventana = pygame.display.set_mode((800, 600))
         self.reloj = pygame.time.Clock()
 
-        # Creamos la instancia del jugador y del enemigo
-        self.protagonista = Jugador((0, 255, 0), 400, 300, 5) 
-        self.enemigo = Enemigo((255, 0, 0), 500, 200, 3) 
+        ruta_imgs = '/home/javier/Documentos/Programas/Python/POOPython/'\
+                      'Unidad_PyGame/PNGs/'
+        self.protagonista = Jugador(ruta_imgs+'Nave01.png', 400, 300, 5)
+        self.enemigo = Enemigo(ruta_imgs+'Alien01.png', 500, 200, 3) 
         
         self.todos_los_sprites = pygame.sprite.Group()
         self.grupo_enemigos = pygame.sprite.Group()
@@ -112,7 +106,6 @@ class MiJuego:
 
     def ejecutar(self):
         while self.corriendo:
-            # 1. Eventos
             for evento in pygame.event.get():
                 if evento.type == pygame.QUIT:
                     self.corriendo = False
@@ -123,6 +116,11 @@ class MiJuego:
            
             if choques:
                 print("¡CHOQUE! Has eliminado a un enemigo.")
+
+                # *******************************
+                # 4. Reproduce el sonido una vez
+                # *******************************
+                self.sonido_explosion.play()    
 
             # Dibujo
             self.ventana.fill((64, 22, 151)) # Fondo
