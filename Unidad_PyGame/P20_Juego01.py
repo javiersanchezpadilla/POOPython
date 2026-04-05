@@ -363,9 +363,9 @@ def hay_colision(x1, y1, x2, y2):
 
 
 
-
+# P1 Loop del juego
 se_ejecuta = True
-while se_ejecuta:                       # P1 Loop del juego
+while se_ejecuta:  
 
     # P2 Determinamos el color de fondo de la pantalla
     #    primero dibujamos la pantalla antes que todo para que los personajes 
