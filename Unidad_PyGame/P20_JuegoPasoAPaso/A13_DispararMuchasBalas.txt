@@ -1,0 +1,82 @@
+Clase Adicional: Disparar Varias Balas
+Muchos de ustedes me han preguntado cómo hacer para que nuestra nave sea capaz de disparar 
+balas de forma simultánea sin necesidad de esperar a que la bala actual salga de la pantalla 
+o golpee a un enemigo.
+
+
+***************** PASO 1
+Donde se definen las variables de las balas, antes del loop del juego, crea una lista vacía llamada 
+balas para almacenar las balas:
+
+balas = []
+
+Este tramo de código completo quedaría así:
+
+# Variables Bala
+balas = []
+img_bala = pygame.image.load("bala.png")
+bala_x = 0
+bala_y = 500
+bala_x_cambio = 0
+bala_y_cambio = 3
+bala_visible = False
+
+
+****************** PASO 2
+
+En el evento KEYDOWN cuando se presione la tecla K_SPACE, en lugar de actualizar las variables bala_x y bala_y, 
+crea una nueva bala con su propia posición y velocidad. Agrega esta nueva bala a la lista de balas:
+
+# Disparar bala
+if evento.key == pygame.K_SPACE:
+    sonido_bala = mixer.Sound("disparo.mp3")
+    sonido_bala.play()
+    nueva_bala = {
+    "x": jugador_x,
+    "y": jugador_y,
+    "velocidad": -5
+    }
+    balas.append(nueva_bala)
+
+
+******************** PASO 3
+
+En el loop del juego, para cada bala en la lista de balas, actualiza su posición en el eje Y utilizando su velocidad, 
+y dibuja la imagen de la bala en la pantalla.
+Finalmente, si una bala sale de la pantalla (es decir, si su posición en el eje Y es menor que cero), elimina esa bala
+de la lista de balas:
+
+# Movimiento bala
+for bala in balas:
+    bala["y"] += bala["velocidad"]
+    pantalla.blit(img_bala, (bala["x"] + 16, bala["y"] + 10))
+    if bala["y"] < 0:
+        balas.remove(bala)
+
+
+******************** PASO 4
+
+Para que las balas colisionen con los enemigos, necesitas verificar la colisión entre cada bala y cada enemigo en cada 
+iteración del bucle principal. Actualmente, sólo estás verificando la colisión con un solo enemigo y una sola bala. 
+Aquí está el código que debemos actualizar dentro del loop del juego en el apartado de colisión
+
+# colision
+for bala in balas:
+    colision_bala_enemigo = hay_colision(enemigo_x[e], enemigo_y[e], bala["x"], bala["y"])
+    if colision_bala_enemigo:
+        sonido_colision = mixer.Sound("Golpe.mp3")
+        sonido_colision.play()
+        balas.remove(bala)
+        puntaje += 1
+        enemigo_x[e] = random.randint(0, 736)
+        enemigo_y[e] = random.randint(20, 200)
+        break
+ 
+enemigo(enemigo_x[e], enemigo_y[e], e)
+
+
+En este código, se ha agregado un bucle adicional dentro del bucle de los enemigos para verificar la colisión entre cada 
+bala y cada enemigo.  Si se detecta una colisión, se elimina la bala, se incrementa el puntaje, se genera una nueva 
+posición para el enemigo y se rompe el bucle interno.
+Además, se ha agregado balas.clear() en caso de colisión entre el jugador y un enemigo para eliminar todas las balas 
+restantes en la pantalla.

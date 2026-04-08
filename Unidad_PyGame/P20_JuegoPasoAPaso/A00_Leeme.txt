@@ -1,0 +1,18 @@
+Lo primero es preparar el entorno, necesitamos PyGame y PyOpenGL:
+
+pip3 install PyGame
+pip3 install PyOpenGL
+pip3 install PyGame PyOpenGL PyOpenGL_accelerate
+pip3 install mixer
+
+
+Las versiones que se instalaron en su momento estan en el archivo 
+requerimientos.txt y contiene:
+
+Faker==12.0.1
+mixer==7.2.2
+pygame==2.6.0
+PyOpenGL==3.1.7
+python-dateutil==2.9.0.post0
+six==1.16.0
+
