@@ -14,7 +14,8 @@ class Empleado:
 class Programador(Empleado):
 
     def __init__(self, nombre_completo, salario, lenguaje_de_programacion):
-        Empleado.__init__(self, nombre_completo, salario)
+        Empleado.__init__(self, nombre_completo, salario)   # <-- podemos usar esto
+        # super().__init__(nombre_completo, salario)        # <-- o esta sintaxis
         self.lenguaje_de_programacion = lenguaje_de_programacion
 
 

@@ -9,14 +9,25 @@
     ver ejemplo01 y ejemlpo02 al final del documento, dónde se agregan textos 
     a los mostrados en el método original.
 
-    Los términos sobrescribir y anular pueden parecer muy similares, pero en 
-    realidad son bastante diferentes.
-    Sobrescribir significa reemplazar código o datos existentes con código o 
-    datos nuevos.
-    Anular implica modificar el comportamiento de un método dentro de una 
-    jerarquía. Cuando se anula un método, su nueva implementación tiene 
-    prioridad sobre las implementaciones anteriores ubicadas más arriba en la 
-    jerarquía.
+    SOBREESCRIBIR (OVERWRITING) Y ANULAR MÉTODOS (OVERRIDING).
+    ===============================
+    Los términos sobrescribir y anular pueden parecer y parecer muy similares, 
+    pero en realidad son bastante diferentes.
+
+    A)  Sobrescribir significa reemplazar código o datos existentes con código 
+        o datos nuevos, es extender la funcionalidad de un método mediante un
+        método nuevo que llama a su vez al método de la clase padre o super.
+
+    B)  Anular implica modificar el comportamiento de un método dentro de una 
+        jerarquía. Cuando se anula un método, su nueva implementación tiene 
+        prioridad sobre las implementaciones anteriores ubicadas más arriba 
+        en la jerarquía, esto es, se reemplaza totalmente la funcionalidad del
+        método original (clase padre o super clase) y se reemplaza 
+        (sobreescribe por el nuevo método) olvidando por completo lo anterior.
+
+    Conocer esta diferencia es muy importante para elegir el término correcto 
+    en el contexto apropiado.
+
 
     OVERRIDING:
     1) Prevalece sobre todas las cosas.
@@ -61,6 +72,10 @@
                 subclase
                 def  <method_name> (self)
                         <SuperClase> . < method_name > ( self)
+
+    EN ESTE EJEMPLO SE EXTIENDE LA FUNCIONALIDAD DE LOS MÉTODOS 
+    bienvenidos_estudiantes(), DONDE SE OCUPAN AMBAS VERSIONES, EXTENDIENDO
+    ASÍ LA FUNCIONALIDAD
 """
 
 class Profesor:
