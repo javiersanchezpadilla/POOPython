@@ -12,8 +12,8 @@ x = "Hola a todos!!!"
 y = "Hola a todos!!!"
 print("Para las cadenas", x is y)
 
-a = 5
-b = 5
+a = 355
+b = 355
 print("PAra los valores numéricos", a is b)
 
 print('\nVerificar las direcciones de memoria')

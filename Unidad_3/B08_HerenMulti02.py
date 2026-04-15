@@ -1,50 +1,35 @@
-"""
-    HERENCIA MÚLTIPLE EN PYTHON
+""" HERENCIA MULTINIVEL
+    
+    La Herencia Multinivel ocurre cuando una clase hereda de otra clase que, 
+    a su vez, ya es una clase hija de otra. Es como un árbol genealógico: 
+    
+        Abuelo → Padre → Hijo.
 
-    Ya sabemos más sobre la herencia multinivel, ahora hablemos de la 
-    herencia múltiple.
-    En herencia múltiple, una clase tiene más de una clase principal.
+    Dispositivos Electrónicos
+    -------------------------
+    En este caso, vamos de lo más general (un dispositivo) a lo más específico
+    (un smartphone).
 
-    Por ejemplo, si estamos desarrollando una interfaz gráfica de usuario 
-    (GUI), una clase de botón podría heredar tanto de la clase Rectángulo 
-    (para estilo) como de la clase GUIEelement (para funcionalidad).
-
-    Este es un diagrama de esta jerarquía:
-
-    Rectangulo  
-              \
-               \
-                +------> Boton
-               /
-              /
-    GUIElement
-
-    Esta es la sintaxis general para configurar la herencia múltiple. 
-    La subclase heredará los atributos y métodos de ambas superclases 
-    (clases base).
-
-    Hay que tener en cuenta que la herencia múltiple es muy diferente de la 
-    herencia multinivel, incluso si sus nombres pueden parecer similares. 
-    Tómese un momento para analizar sus diferencias.
+    Como SmartPhone no tiene método __init__() entonces busca en el padre 
+    Telefono, pero como tampoco tiene método __init__(), ahora busca en el 
+    abuelo y lo ejecuta
 """
 
-class Rectangulo:
- 
-    def __init__(self, longitud, ancho, color):
-        self.longitud = longitud
-        self.ancho = ancho
-        self.color = color
- 
- 
-class GUIElement:
- 
-    def click(self):
-        print("El objeto ha sido oprimido con un clic...")
- 
- 
-class Boton(Rectangulo, GUIElement):
- 
-    def __init__(self, longitud, ancho, color, texto):
-        Rectangulo.__init__(self, longitud, ancho, color)
-        self.texto = texto
+class Dispositivo:
+    def __init__(self, marca):
+        self.marca = marca
+        print(f"Dispositivo {self.marca} fabricado.")
+
+class Telefono(Dispositivo):
+    def llamar(self):
+        print("Realizando llamada de voz...")
+
+class SmartPhone(Telefono):
+    def navegar_internet(self):
+        print(f"Navegando en internet desde mi {self.marca}.")
+
+# El SmartPhone tiene acceso a TODO lo de arriba
+mi_celular = SmartPhone("Samsung")
+mi_celular.llamar()            # Heredado de Telefono
+mi_celular.navegar_internet()  # Propio de SmartPhone
 

@@ -1,6 +1,30 @@
 """ En Pytyon todo es un ojeto
 
     OBJECT Es la clase base de la cual heredan todas las clases en Python
+    En Python, todas las clases que creas heredan de object de forma automática
+    incluso si no lo escribes explícitamente.
+
+    1. El Concepto de 'Todo es un Objeto'
+    -------------------------------------
+    Cuando decimos que en Python 'todo es un objeto', nos referimos a que 
+    incluso los tipos de datos más básicos (como números o cadenas) tienen a 
+    <object> en la cima de su árbol genealógico.
+
+    **) Un entero (int) es un objeto.
+    **) Una cadena (str) es un objeto.
+    **) Una función es un objeto.
+    **) Incluso una clase es un objeto.
+
+    2. ¿Qué hereda una clase de <object>?
+    -------------------------------------
+    Al heredar de esta clase base, tus objetos obtienen comportamientos 
+    esenciales (métodos especiales) que Python necesita para gestionarlos. 
+    Algunos de estos 'métodos mágicos' (Dunder methods) son:
+
+    1)  __init__: Para inicializar el objeto.
+    2)  __str__: Para definir cómo se ve el objeto cuando lo imprimes con print().
+    3)  __repr__: Para la representación interna del objeto.
+    4)  __eq__: Para poder comparar dos objetos con el operador ==.
 
 """
 

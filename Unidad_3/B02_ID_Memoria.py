@@ -1,8 +1,9 @@
-""" Caa objeto declarado ocupa una dirección de memoria
+""" IDENTIFICACIÓN DE LA DIRECCIÓN DE MEMORIA DE CADA OBJETO
 
+    Cada objeto declarado ocupa una dirección de memoria
     Podemos identificar estas direcciones mediante ID
 
-    self realmente es el restreo que hace cada programa para referiste
+    self realmente es el rastreo que hace cada programa para referiste
     a la dirección de memoria del objeto creado
 
     Existe una diferencia muy sutil entre un objeto y una instancia. 

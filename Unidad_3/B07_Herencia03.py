@@ -1,7 +1,7 @@
 """ ATRIBUTOS HEREDADOS CON __init___()
 
     Vamos a ver como hacer que una clase herede los atributos de una clase.
-    Cuando no indicamos método __init__() en la clase hija de donde creamos la
+    CUANDO NO INDICAMOS MÉTODO __init__() en la clase hija de donde creamos la
     instancia, automaticamente se ejecuta el método __init__() de la clase
     padre (en este caso Poligono)
 

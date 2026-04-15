@@ -1,7 +1,7 @@
 """ ENLAZAR DOS VALORES DE FORMA MANUAL
 
     Mediante el uso de la clase Nodo, se enlazarán dos nodos de forma manual
-    lo que estamos enlazando realmente son dos instancias como si fueran
+    lo que estamos enlazando realmente son dos INSTANCIAS como si fueran
     una lista
 """
 

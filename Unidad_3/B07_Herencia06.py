@@ -1,25 +1,47 @@
-""" EJEMPLO DE HERENCIA
+""" HERENCIA. super() para referirse a la Superclase
 
-    Definiremos una clase empleado y una clase programador
+    super() Esta es una función incorporada de Python que puede usar para hacer 
+    referencia a la clase principal inmediata de la clase actual.
+
+    'En una jerarquía de clases con herencia única, super() se puede usar para 
+    referirse a clases principales sin nombrarlas explícitamente, lo que hace
+    que el código sea más fácil de mantener. Este uso es muy paralelo al uso 
+    de super() en otros lenguajes de programación'.
+
+
+    Sintaxis alternativa:
+    ---------------------
+    Puedes usar super() en __init__() para hacer que tu subclase herede los 
+    atributos de su superclase.
+
+    Por ejemplo, aquí tenemos una subclase con la función super():
+
+            Perro.__init__(self, nombre, edad)
+
+            super().__init__(nombre, edad) 
+
+    En la nueva sintaxis mediante el uso de super(), ya no es necesario pasar
+    'self'
+
 """
 
+class Perro:
+ 
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad
+ 
+		
+class Poodle(Perro):
+ 
+    def __init__(self, nombre, edad, codigo):
 
-class Empleado:
+        # Es quivalente a 
+        # Perro.__init__(self, nombre, edad)
+        super().__init__(nombre, edad)          
+        self.codigo = codigo
 
-    def __init__(self, nombre_completo, salario):
-        self.nombre_completo = nombre_completo
-        self.salario = salario
-
-
-class Programador(Empleado):
-
-    def __init__(self, nombre_completo, salario, lenguaje_de_programacion):
-        Empleado.__init__(self, nombre_completo, salario)   # <-- podemos usar esto
-        # super().__init__(nombre_completo, salario)        # <-- o esta sintaxis
-        self.lenguaje_de_programacion = lenguaje_de_programacion
-
-
-nora = Programador("Alberto Gutierrez", 30000, "Python")
-print('Nombre completo', nora.nombre_completo)
-print('Salario', nora.salario)
-print('Lenguale', nora.lenguaje_de_programacion)
+mi_perro = Poodle('Max', 5, 23234)
+print(mi_perro.nombre)
+print(mi_perro.edad)
+print(mi_perro.codigo)

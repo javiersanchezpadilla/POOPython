@@ -1,51 +1,25 @@
-""" EJEMPLO
+""" EJEMPLO DE HERENCIA
 
+    Definiremos una clase empleado y una clase programador
 """
 
-class Personaje:
 
-    def __init__(self, x, y, vidas):
-        self.x = x
-        self.y = y
-        self.vidas = vidas
+class Empleado:
 
-
-class Jugador(Personaje):
-
-    X_INICIAL = 0
-    Y_INICIAL = 0
-    VIDAS_INICIALES = 10
-
-    def __init__(self, score=0):
-
-        Personaje.__init__(self, Jugador.X_INICIAL, Jugador.Y_INICIAL, Jugador.VIDAS_INICIALES)
-        self.score = score
+    def __init__(self, nombre_completo, salario):
+        self.nombre_completo = nombre_completo
+        self.salario = salario
 
 
-class Enemigo(Personaje):
+class Programador(Empleado):
 
-    def __init__(self, x=15, y=15, vidas=8, es_venenoso=False):
-        Personaje.__init__(self, x, y, vidas)
-        self.es_venenoso = es_venenoso
+    def __init__(self, nombre_completo, salario, lenguaje_de_programacion):
+        Empleado.__init__(self, nombre_completo, salario)   # <-- podemos usar esto
+        # super().__init__(nombre_completo, salario)        # <-- o esta sintaxis
+        self.lenguaje_de_programacion = lenguaje_de_programacion
 
 
-mi_jugador = Jugador()
-print('X = ', mi_jugador.x)
-print('Y = ', mi_jugador.y)
-print('Vidas = ', mi_jugador.vidas)
-
-enemigo_facil = Enemigo(vidas=1)
-enemigo_dificil = Enemigo(vidas=56, es_venenoso=True)
-
-print('\nENEMIGO FACIL')
-print('X =', enemigo_facil.x)
-print('Y =', enemigo_facil.y)
-print('Vidas =', enemigo_facil.vidas)
-print('Venenoso? ', enemigo_facil.es_venenoso)
-
-print('\nENEMIGO DIFICIL')
-print('X =', enemigo_dificil.x)
-print('Y =', enemigo_dificil.y)
-print('Vidas =', enemigo_dificil.vidas)
-print('Venenoso? ', enemigo_dificil.es_venenoso)
-
+nora = Programador("Alberto Gutierrez", 30000, "Python")
+print('Nombre completo', nora.nombre_completo)
+print('Salario', nora.salario)
+print('Lenguale', nora.lenguaje_de_programacion)

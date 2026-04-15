@@ -15,8 +15,20 @@
 
 """
 
+def elimina_valores_pares_con_error(diccionario):
+    """ Esta función al ciclar y eliminar datos del diccionario, ocasiona
+        que se desbalancee el ciclo, por eso el error 
+        Por eso manda el error
+        ValueError: not enough values to unpack (expected 2, got 1)"""
+    # ciclamos con la copia clonada del diccionario
+    for llave, valor in diccionario: 
+        if valor % 2 == 0:
+            del diccionario[llave]  # afectamos el dicc original
+
 
 def elimina_valores_pares(diccionario):
+    """ La solución para corregir el error es obtener una copia
+        clonada del diccionario original para proteger el ciclo"""
     # ciclamos con la copia clonada del diccionario
     for llave, valor in diccionario.copy().items(): 
         if valor % 2 == 0:
@@ -27,3 +39,6 @@ mi_diccionario = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
 print(mi_diccionario)           # {'a': 1, 'b': 2, 'c': 3, 'd': 4}
 elimina_valores_pares(mi_diccionario)
 print(mi_diccionario)           # {'a': 1, 'c': 3}
+
+elimina_valores_pares_con_error(mi_diccionario)
+print(mi_diccionario)

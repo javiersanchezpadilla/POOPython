@@ -1,4 +1,7 @@
-""" Creación de la clase nodo
+""" CREACIÓN DE LA CLASE NODO
+
+    Esta clase permite crear los nodos de la lista, es la clase base
+    para las clases siguientes.
 
     PEP8 recomienda que los nombres de los programas que servirán como 
     módulos sean escritos como la definición de las variable, usando

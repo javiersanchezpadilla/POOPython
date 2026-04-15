@@ -26,3 +26,4 @@ class Cuadraro(Poligono):
 
 print('Es una subclase Cuadrado de Poligono? ', issubclass(Cuadraro, Poligono))
 print('Es una subclase Triangulo de Poligono? ', issubclass(Triangulo, Poligono))
+print('Es una subclase Poligono de Object? ', issubclass(Poligono, object))

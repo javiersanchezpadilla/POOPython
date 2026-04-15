@@ -15,6 +15,11 @@
                                              +----> Camión
 
     Representación de esta jerarquia en cóodigo
+
+    La Herencia Multinivel ocurre cuando una clase hereda de otra clase que, 
+    a su vez, ya es una clase hija de otra. Es como un árbol genealógico: 
+    
+        Abuelo → Padre → Hijo.
 """
 
 class Vehiculo:

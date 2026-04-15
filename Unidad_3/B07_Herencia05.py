@@ -1,42 +1,30 @@
-""" HERENCIA. super() para referirse a la Superclase
+""" HERENCIA 
 
-    super() Esta es una función incorporada de Python que puede usar para hacer 
-    referencia a la clase principal inmediata de la clase actual.
+    Herencia sin constructor en la subclase (Ejemplo con Vehículo)
+    En este ejemplo, la clase Coche hereda de la clase Vehiculo sin definir 
+    su propio constructor (__init__).
+    Al crear una instancia de Coche, se llama automáticamente al constructor 
+    de Vehiculo, lo que permite inicializar el atributo marca sin necesidad 
+    de definir un constructor específico en Coche.
+    Esto demuestra que la herencia en Python permite que las subclases 
+    utilicen el constructor de la clase padre si no definen el suyo propio.
 
-    'En una jerarquía de clases con herencia única, super() se puede usar para 
-    referirse a clases principales sin nombrarlas explícitamente, lo que hace
-    que el código sea más fácil de mantener. Este uso es muy paralelo al uso 
-    de super() en otros lenguajes de programación'.
-
-
-    Sintaxis alternativa:
-    ---------------------
-    Puedes usar super() en __init__() para hacer que tu subclase herede los 
-    atributos de su superclase.
-
-    Por ejemplo, aquí tenemos una subclase con la función super():
-
-            Perro.__init__(self, nombre, edad)
-
-            super().__init__(nombre, edad) 
-
-    En la nueva sintaxis mediante el uso de super(), ya no es necesario pasar
-    'self'
-
+    El Sistema de Vehículos
+    -----------------------
+    Aquí la clase Vehiculo define la marca. La clase Coche hereda esa 
+    propiedad sin necesidad de repetir el código de inicialización.
 """
 
-class Perro:
- 
-    def __init__(self, nombre, edad):
-        self.nombre = nombre
-        self.edad = edad
- 
-		
-class Poodle(Perro):
- 
-    def __init__(self, nombre, edad, code):
+class Vehiculo:
+    def __init__(self, marca):
+        self.marca = marca
+        print(f"Vehículo marca {self.marca} inicializado.")
 
-        # Es quivalente a 
-        # Perro.__init__(self, nombre, edad)
-        super().__init__(nombre, edad)          
-        self.code = code
+class Coche(Vehiculo):
+    # No hay __init__ aquí
+    def encender(self):
+        print(f"El coche {self.marca} ha encendido el motor.")
+
+# Python busca el __init__ de Vehiculo automáticamente
+mi_auto = Coche("Toyota")
+mi_auto.encender()

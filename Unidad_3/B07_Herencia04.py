@@ -1,43 +1,28 @@
-""" ATRIBUTOS HEREDADOS.
+""" HERENCIA Herencia sin constructor en la subclase 
 
-    Cuando en la subclase existe o cuenta con su propio método __init__()
-    los atributos de la superclase no se heredan de forma automática, 
-    anteriormente si se pudo porque la subclase no tenia el método __init__()
-    pero en este caso ya no cumple esta regla, entonces tenemos que escribirlo
-    de forma explicita (llamarlo manualmente)
+    En este ejemplo, la clase Empleado no tiene un método __init__ definido.
+    Sin embargo, al crear una instancia de Empleado, se llama automáticamente
+    al constructor de la clase Persona, lo que permite inicializar el atributo 
+    nombre sin necesidad de definir un constructor específico en Empleado. 
+    Esto demuestra que la herencia en Python permite que las subclases 
+    utilicen el constructor de la clase padre si no definen el suyo propio.
 
-        <superclase>.__init__(self, <argumentos>)
+    El Sistema de Empleados
+    -----------------------
+    En este caso, la clase Persona configura el nombre. La clase Empleado 
+    no tiene constructor propio, así que cuando creamos un empleado, Python 
+    busca automáticamente el __init__ del padre.
+    """
+class Persona:
+    def __init__(self, nombre):
+        self.nombre = nombre
+        print(f"Constructor de Persona ejecutado para: {self.nombre}")
 
-"""
+class Empleado(Persona):
+    # No hay __init__ aquí
+    def trabajar(self):
+        print(f"{self.nombre} está trabajando ahora mismo.")
 
-
-class Poligono:
-
-    def __init__(self, numero_lados, color):
-        self.numero_lados = numero_lados
-        self.color = color
-        
-
-class Triangulo(Poligono):
-
-    NUMERO_LADOS = 3
-
-    def __init__(self, base, altura, color):
-        # inicializamos atributos de la superclase o clase padre
-        Poligono.__init__(self, Triangulo.NUMERO_LADOS, color) 
-        self.base = base
-        self.altura = altura
-
-
-# creamos una instancia de triangulo, sin embargo como hereda dela clase padre
-# Poligono es necesario incluir los atributos requeridos por la clase padre
-# que son el numero de lados, así como el color, y los atributos propios de la
-# lase hija que en este caso son la base y la altura, al ser un triangulo el
-# numero de lados lo asignamos como un atributo de clase NUMERO_LADOS = 3
-mi_triangulo = Triangulo(5, 4, 'Rojo')
-
-print('Lados = ', mi_triangulo.numero_lados)        # Resultado 3
-print('Color = ', mi_triangulo.color)               # Resultado 'Rojo'
-print('Base = ', mi_triangulo.base)                # 5
-print('Altura = ', mi_triangulo.altura)              # 4
-
+# Al instanciar, pasamos el nombre que requiere el padre
+sujeto = Empleado("Javier")
+sujeto.trabajar()
