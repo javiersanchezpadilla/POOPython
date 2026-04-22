@@ -43,6 +43,7 @@ class TrianguloDerecho(Triangulo):
         print("=== Área del triangulo derecho ===")
  
         # Esta linea llama al método de la clase Triangulo.
+        # super().encontrar_area()      # <-- Método alternativo
         Triangulo.encontrar_area(self)
  
 		
