@@ -32,6 +32,9 @@ class MiClase:
     def __init__(self):
         print("Hola desde mi clase")
 
+print("A nivel ejecución, yo programa modulo soy:", __name__)
+
+# primero ejecutar sin el __name__ == __main__ para entender el comportamiento
 if __name__ == '__main__':
     print(variable)
     mi_funcion()

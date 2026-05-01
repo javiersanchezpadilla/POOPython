@@ -11,3 +11,5 @@ import B11_Imports01
 print(B11_Imports01.variable)
 B11_Imports01.mi_funcion()
 B11_Imports01.MiClase()
+
+print('A nivel ejecución yo programa B11_Imports02.py soy', __name__)

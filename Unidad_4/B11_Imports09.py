@@ -19,7 +19,10 @@ class ClaseVisible:
     """Clase que debe ser accesible."""
     pass
 
+mi_variable_publica = "Hola desde mi variable"
+mi_variable_protegida = "Top secret"
+
         # **CLAVE:** Definición de __all__
         # Solo incluimos los nombres que queremos exponer.
-__all__ = [ "funcion_publica_1", "ClaseVisible" ]
+__all__ = [ "funcion_publica_1", "ClaseVisible", "mi_variable_publica" ]
 
