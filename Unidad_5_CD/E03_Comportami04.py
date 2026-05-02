@@ -1,4 +1,4 @@
-""" PATRONES DE DISEÑO (OBSERVER)
+""" PATRONES DE DISEÑO OBSERVER (COMPORTAMIENTO)
 
     2. Observer (Patrón de Comportamiento)
     --------------------------------------

@@ -1,0 +1,53 @@
+ PATRONES DE DISEÑO (CREACIONALES)
+
+Entrar al mundo de los Patrones de Diseño es pasar de ser un programador 
+que escribe código funcional a ser un Arquitecto de Software, esto es 
+fundamental porque los patrones son soluciones probadas a problemas 
+comunes en el desarrollo de software.
+
+1. Definición de Patrones de Diseño
+-----------------------------------
+Un patrón de diseño es una solución estándar y reutilizable a un problema 
+que ocurre frecuentemente en un contexto de diseño de software.
+No es una pieza de código terminada que se copia y pega, sino una 
+plantilla o guía sobre cómo resolver un problema. Es el 'lenguaje común' 
+entre ingenieros; cuando dices 'usa un Singleton', todos entienden la 
+arquitectura sin ver una sola línea de código.
+
+2. Tipos de Patrones de Diseño
+------------------------------
+Se dividen en tres grandes familias según el tipo de problema que 
+resuelven:
+
+1)  Creacionales: Se enfocan en cómo se crean los objetos. Su objetivo es 
+    separar la lógica de creación de la lógica de uso para que el sistema 
+    sea independiente de cómo se crean sus objetos.
+2)  Estructurales: Se enfocan en cómo se combinan las clases y objetos 
+    para formar estructuras más grandes y eficientes (como piezas de LEGO 
+    que encajan perfectamente).
+3)  De Comportamiento: Se enfocan en la comunicación entre objetos. 
+    Definen cómo los objetos interactúan y se reparten las 
+    responsabilidades.
+
+Categoría           Patrón                  Propósito
+------------------------------------------------------------------------------
+Creacional      Singleton/Factory   Controlar cómo nacen los objetos.
+Estructural     Adapter/Proxy       Controlar cómo se ensamblan y protegen las 
+                                    piezas.
+Comportamiento  Command/State/      Controlar cómo interactúan y reaccionan a 
+                Observer            cambios.
+
+
+Al final de estos temas tendremos las herramientas necesarias de diseño de 
+nivel profesional:
+
+1)  Abstracción y Polimorfismo: Para crear contratos de software sólidos.
+2)  Patrones Creacionales (Singleton/Factory): Para administrar el nacimiento 
+    de objetos.
+3)  Patrones Estructurales (Adapter/Proxy): Para ensamblar piezas y proteger 
+    recursos.
+4) Patrones de Comportamiento (Command/Observer/State): Para dar inteligencia 
+    a la comunicación entre objetos.
+
+Este conocimiento nos separará de un programador que solo escribe código a un 
+Ingeniero de Software que diseña soluciones escalables.                

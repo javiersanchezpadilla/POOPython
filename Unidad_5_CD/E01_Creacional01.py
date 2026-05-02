@@ -1,38 +1,20 @@
 """ PATRONES DE DISEÑO (CREACIONALES)
 
+    Todo se resume en una sola frase:
+    ---------------------------------
+    'Como crear los objetos de una forma inteligente'
+
     Entrar al mundo de los Patrones de Diseño es pasar de ser un programador 
     que escribe código funcional a ser un Arquitecto de Software, esto es 
     fundamental porque los patrones son soluciones probadas a problemas 
     comunes en el desarrollo de software.
 
-    1. Definición de Patrones de Diseño
-    -----------------------------------
-    Un patrón de diseño es una solución estándar y reutilizable a un problema 
-    que ocurre frecuentemente en un contexto de diseño de software.
-    No es una pieza de código terminada que se copia y pega, sino una 
-    plantilla o guía sobre cómo resolver un problema. Es el 'lenguaje común' 
-    entre ingenieros; cuando dices 'usa un Singleton', todos entienden la 
-    arquitectura sin ver una sola línea de código.
-
-    2. Tipos de Patrones de Diseño
-    ------------------------------
-    Se dividen en tres grandes familias según el tipo de problema que 
-    resuelven:
-
     1)  Creacionales: Se enfocan en cómo se crean los objetos. Su objetivo es 
         separar la lógica de creación de la lógica de uso para que el sistema 
         sea independiente de cómo se crean sus objetos.
-    2)  Estructurales: Se enfocan en cómo se combinan las clases y objetos 
-        para formar estructuras más grandes y eficientes (como piezas de LEGO 
-        que encajan perfectamente).
-    3)  De Comportamiento: Se enfocan en la comunicación entre objetos. 
-        Definen cómo los objetos interactúan y se reparten las 
-        responsabilidades.
 
-        
-
-    3. PATRONES CREACIONALES: EJEMPLO - SINGLETON
-    =============================================
+    PATRONES CREACIONALES: EJEMPLO - SINGLETON
+    ==========================================
     El patrón Singleton garantiza que una clase tenga una única instancia en 
     todo el programa y proporciona un punto de acceso global a ella.
 
@@ -49,6 +31,7 @@
     tocando el mismo objeto.
 
     Eplicación del código
+    =====================
     El secreto del Singleton está en controlar el momento exacto en que el 
     objeto nace.
 
@@ -85,7 +68,7 @@
     **) Resultado: Se salta la creación y simplemente te devuelve lo que ya 
         tenía guardado.
 
-    3. ¿Por qué esto es un patrón "Creacional"?
+    3. ¿Por qué esto es un patrón 'Creacional'?
     -------------------------------------------
     Se llama así porque el patrón toma el control de la creación.
     En una clase normal, cada vez que usas paréntesis (), creas un objeto 
@@ -94,6 +77,7 @@
     cuántas veces pidas un objeto, siempre recibas el mismo.
 
     Ejemplo práctico de por qué lo usamos:
+    --------------------------------------
     Si estamos programando un juego, la clase Configuracion (volumen, 
     resolución, brillo) debe ser un Singleton. Si el Jugador cambia el volumen 
     a 50%, la Musica debe ver ese mismo 50%. Si fueran objetos distintos, el 
