@@ -20,6 +20,16 @@
     'Una Clase Abstracta es un plano que dice qué debe tener una casa, pero no 
     es una casa en la que puedas vivir. Solo cuando construyes una casa real 
     (Subclase) basándote en ese plano, puedes entrar en ella.'
+
+    SOLUCIÓN
+
+            class Arco(Arma):
+            
+            def disparar(self):                 <-- Debe agregar el método 
+                print("zas por el aire")
+
+        arco = Arco()
+        arco.disparar()
 """
 from abc import ABC, abstractmethod
 
@@ -40,6 +50,9 @@ class Lanzallamas(Arma):
 class Arco(Arma):
     pass 
 
+
+arco = Arco()
+arco.disparar()
 # Python dará ERROR: "Can't instantiate abstract class Arco with 
 # abstract method disparar"
 # arco = Arco()  

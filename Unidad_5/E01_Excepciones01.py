@@ -1,51 +1,78 @@
-""" MANEJO DE EXCEPCIONES
+""" MANEJO DE EXCEPCIONES EN PYTHON (MANEJO DE ERRORES)
 
-    Es un tema fundamental para pasar de escribir programas que 'corren' a 
-    programas que son robustos y profesionales. En el mundo real, las cosas 
-    fallan (el usuario escribe letras donde van números, se va el internet, un 
-    archivo no existe), y las excepciones son la forma en que el software 
-    maneja esos errores sin 'tronar'.
+Tenemos varios niveles para el manejo de los errores. Un error o una excepción 
+es cuando nuestro programa termina de forma abrupta, tenemos varios tipos de 
+clases para el manejo de errores, (errores del tipo aritmético, del sistema 
+operativo, de indentación, de sintaxis ) la clase exception es la clase padre 
+que captura todos las excepciones y asu vez es hija de la clase BaseException.
+
+                              BaseException
+                                    ^
+                                    |       (Clase padre que captura todas)
+                                Exception   (las exepciones, es hija de) 
+                                    ^       (BaseException)
+                                    |
+     +------------------+-------------+-----------------+--------------+
+     ^                  ^             ^                 ^              ^
+     |                  |             |                 |              |
+AritmeticError      OSError      RunTimeError      LookupError     SintaxError
+    ^                   ^                               ^              ^
+    |                   |                               |              |
+ZeroDivisionError       |                               |     IndentacionError
+                        |                               |
+               +-----------------+                +------------+
+               ^                 ^                ^            ^
+               |                 |                |            |
+       FileNotFoundError   PermissionError    IndexError    KeyError
 
 
-    1. ¿Qué es una Excepción?
-    -------------------------
-    Una excepción es un evento que ocurre durante la ejecución de un programa 
-    y que interrumpe el flujo normal de las instrucciones. No es 
-    necesariamente un error de dedo del programador, sino una situación 
-    excepcional que el sistema debe saber gestionar.
+Ejemplo de una excepción. por ejemplo si queremos dividir un valor entre cero.
 
-    Analogía: Imagina que vas conduciendo hacia el tecnológicola. Si se poncha 
-    una llanta (Excepción), no abandonas el auto; sacas la refacción, la 
-    cambias (Manejo de la excepción) y sigues tu camino.
+En código teclear lo siguiente y ejecutar
+    10/0
 
-    2. Estructura: El Bloque try - except
-    -------------------------------------
-    En Python, el manejo de excepciones se basa en cuatro palabras clave:
-    1)  try: Aquí pones el código que puede fallar.
-    2)  except: Aquí pones el código que se ejecutará solo si ocurre un error.
-    3)  else (opcional): Se ejecuta solo si no hubo errores en el try.
-    4)  finally (opcional): Se ejecuta siempre, haya habido error o no (ideal 
-        para cerrar archivos o bases de datos).
+Resultado
+    Traceback (most recent call last):
+    File "C:/CursosUniv/Python/Excepciones/Leccion01/Manejo_Excepciones.py", 
+    line 1, in <module>
+        10/0
+    ZeroDivisionError: division by zero
 
-    Ejemplo Práctico y clásico: División Segura
-    --------------------------------------------
-    Este es el ejemplo clásico para el pizarrón. Muestra cómo evitar que el 
-    programa se detenga si el usuario ingresa un cero o una letra.
+Nos arroja la referencia de la clase ZeroDivisionError: y el error es division 
+by zero
+Esa es la subclase que procesa el error, pero podemos tratarla con cualquiera 
+de sus clases padre
+
+BaseException
+      ^
+      |
+  Exception
+      ^
+      |
+ AritmeticError
+      ^
+      |
+ZeroDivisionError
+
+Para poder atrapar el error, (lo que se conoce como try catch) es python se 
+maneja como try except, con lo anterior vamos a capturar la excepción a través 
+de una clase padre la 'clase Excepction'.
 """
-def dividir():
-    try:
-        n1 = float(input("Ingresa el dividendo: "))
-        n2 = float(input("Ingresa el divisor: "))
-        resultado = n1 / n2
-    except ZeroDivisionError:
-        print("Error: No puedes dividir entre cero.")
-    except ValueError:
-        print("Error: Debes ingresar números, no letras.")
-    except Exception as e:
-        print(f"Ocurrió un error inesperado: {e}")
-    else:
-        print(f"El resultado es: {resultado}")
-    finally:
-        print("Operación finalizada.")
+resultado = None
+a = 10
+b = 0
+try:
+    resultado = a / b
+    # Capturamos la excepcion (error) en una clase padre
+    # podemos hacer pruebas ejecutando con las clase padre y el 
+    # resultado será siempre el mismo
 
-dividir()
+    # except BaseException as e:            
+    # except ArithmeticError as e:
+
+except Exception as e:
+    print(f'Ocurrió un error {e}')
+
+print(f'Resultado: {resultado}')
+print('Continuamos...')
+

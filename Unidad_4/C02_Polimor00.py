@@ -4,6 +4,7 @@
     Se debe entender cómo esta capacidad permite construir sistemas 
     desacoplados (donde las piezas no dependen rígidamente unas de otras).
     Aspectos fundamentales a cubrir:
+
     1. El Concepto de Interfaz Común
     --------------------------------
     Es el aspecto más básico pero vital. Se  debe entender que el 
@@ -22,7 +23,7 @@
     3. Duck Typing (Tipado de Pato) en Python
     -----------------------------------------
     Este es un aspecto específico de Python que lo diferencia de lenguajes 
-    como Java o C++.Lo que deben aprender: Python no verifica el tipo de 
+    como Java o C++. Lo que deben aprender: Python no verifica el tipo de 
     objeto (la clase), sino la presencia del método.
     'Si camina como pato y grazna como pato, es un pato'. Esto permite 
     polimorfismo entre clases que no tienen ninguna relación de herencia 
