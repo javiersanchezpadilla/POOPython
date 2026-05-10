@@ -97,6 +97,7 @@ class DispositivoInalambrico(Dispositivo):
         print("Conectado exitosamente al Wi-Fi de la facultad.")
     
     # Aquí tendría que ir la implementación del método encender()
+    # tambien la implementación del métodp configurar_wifi()
     
 
 # NIVEL 3: CLASE FINAL (CONCRETA)

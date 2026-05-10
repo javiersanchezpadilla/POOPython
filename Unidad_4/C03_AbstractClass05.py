@@ -42,12 +42,8 @@
     Ejemplo para comparar ambos en una sola clase:
     Observar y entendera cómo conviven la lógica real y la abstracción:
 
-    MUY MUY IMPORTANTE!!!
-    Si una clase hereda de una Clase Abstracta pero no implementa todos sus 
-    Métodos Abstractos, esa clase hija también se vuelve abstracta y Python no 
-    te dejará crear objetos de ella tampoco. Es una 'herencia de obligaciones'.
-
     LAS CLASES ABSTRACTAS OBLIGAN EL POLIMORFISMO.
+    Este ejemplo contiene lógica de programación dentro de la clase abstracta
 """
 from abc import ABC, abstractmethod
 
