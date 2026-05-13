@@ -1,0 +1,23 @@
+""" LECTURA DE ARCHIVOS DE TEXTO
+
+    READLINE()
+    ----------
+    Leer línea por línea, al final de la línea inserta una línea en blanco 
+    READLINE.
+
+    NOTA: No olvidar abrir el archivo y cerrarlo despuúes de usarlo
+"""
+ruta_archivo = "/home/javier/Documentos/Programas/Python/POOPython/datos.txt"
+mi_variable = open(ruta_archivo)
+
+una_linea = mi_variable.readline()
+print(una_linea)
+una_linea = mi_variable.readline()
+print(una_linea)
+una_linea = mi_variable.readline()
+print(una_linea)
+una_linea = mi_variable.readline()
+print(una_linea)
+
+mi_variable.close()
+
