@@ -16,9 +16,12 @@
     para entender esto abriré un archivo en modo de solo lectura e intentare 
     escribir algo dentro del mismo, lo cual es incorrecto porque el modo solo 
     lectura no permite otra operación que no sea solo leer.
+
+    ESTE CÓDIGO MARCA ERROR, solo es para mostrar que se debe respetar cada
+    modo de acceso a los archivos.
 """
 
 archivo = open("/home/javier/Documentos/Programas/Python/POOPython/datos.txt",'r')
-archivo.write('Linea a escribir')
+archivo.write('Linea a escribir')   # no podemos escribir en modo lectura
 
 archivo.close()

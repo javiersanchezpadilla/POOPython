@@ -1,15 +1,11 @@
 """ LECTURA DE ARCHIVOS DE TEXTO
 
-    Agregar el tipo de juego de caracteres adecuado para que reconozca los 
-    acentos.
-    Actualmente toma estos valores por defecto, sin embargo en versiones
-    anteriores se requiere especificar el juego de caracteres a usar
+    Leer todas las líneas pero especificar qué línea queremos que se muestre.
 """
 ruta_archivo = "/home/javier/Documentos/Programas/Python/POOPython/datos.txt"
 
 archivo = open(ruta_archivo, 'r', encoding='utf8')
-# archivo = open(ruta_archivo)
 
-print(archivo.read())
+print(archivo.readlines()[0])       # Leer el elemento cero de la lista
 
 archivo.close()

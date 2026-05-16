@@ -1,11 +1,14 @@
 """ LECTURA DE ARCHIVOS DE TEXTO
 
-    Leer todas las líneas pero especificar qué línea queremos que se muestre.
+    OBJETO ITERABLE:
+    ----------------
+    El archivo en si es un elemento iterable
+    NOTA: No olvidar abrir el archivo y cerrarlo despuúes de usarlo
 """
 ruta_archivo = "/home/javier/Documentos/Programas/Python/POOPython/datos.txt"
+mi_variable = open(ruta_archivo)
 
-archivo = open(ruta_archivo, 'r', encoding='utf8')
+for linea in mi_variable:
+    print(linea)
 
-print(archivo.readlines()[0])       # Leer el elemento cero de la lista
-
-archivo.close()
+mi_variable.close()

@@ -1,22 +1,14 @@
 """ LECTURA DE ARCHIVOS DE TEXTO
 
-    RSTRIP()
-    ----------
-    Leer línea por línea, y eliminar esa línea en blanco usamos
-
-    NOTA: No olvidar abrir el archivo y cerrarlo despuúes de usarlo
+    Agregar el tipo de juego de caracteres adecuado para que reconozca los 
+    acentos.
+    Actualmente toma estos valores por defecto, sin embargo en versiones
+    anteriores se requiere especificar el juego de caracteres a usar o de lo 
+    contrario mostrará de forma no adecuada los caracteres especiales
 """
 ruta_archivo = "/home/javier/Documentos/Programas/Python/POOPython/datos.txt"
-mi_variable = open(ruta_archivo)
 
-una_linea = mi_variable.readline()
-print(una_linea.rstrip())
-una_linea = mi_variable.readline()
-print(una_linea.rstrip())
-una_linea = mi_variable.readline()
-print(una_linea.rstrip())
-una_linea = mi_variable.readline()
-print(una_linea.rstrip())
+archivo = open(ruta_archivo, 'r', encoding='utf8')
+print(archivo.read())
 
-mi_variable.close()
-
+archivo.close()

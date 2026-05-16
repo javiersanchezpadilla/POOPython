@@ -1,14 +1,17 @@
 """ LECTURA DE ARCHIVOS DE TEXTO
 
-    Leer por caracteres
+    POP()
+    -----
+    Eliminar el último elemento de la lista pop()
+    NOTA: No olvidar abrir el archivo y cerrarlo despuúes de usarlo
 """
-ruta_archivo = "/home/javier/Documentos/Programas/Python/POOPython/datos.txt"
+ruta_archivo = "/home/javier/Documentos/Programas/Python/POOPython"
+mi_variable = open(ruta_archivo + "/datos.txt")
 
-archivo = open(ruta_archivo, 'r', encoding='utf8')
+todas_las_lineas = mi_variable.readlines()
+print(todas_las_lineas)             # mostramos la lista completa
 
-print(archivo.read(5))
-print(archivo.read(3))
-print(archivo.read(2))
-print(archivo.read(15))
+todasLasLineas = todas_las_lineas.pop()
+print(todas_las_lineas)             # borramos el último elemento de la lista
 
-archivo.close()
+mi_variable.close()

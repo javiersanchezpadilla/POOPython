@@ -1,15 +1,13 @@
 """ LECTURA DE ARCHIVOS DE TEXTO
 
-    Leer todas las líneas y asignarlas a una lista readlines(). 
-    usar solo para archivos pequeños
-    --------------------------------
-    
+    Abre el archivo datos.txt e IMPRIME SOLO LA SEGUNDA LINEA
     NOTA: No olvidar abrir el archivo y cerrarlo despuúes de usarlo
 """
-ruta_archivo = "/home/javier/Documentos/Programas/Python/POOPython"
-mi_variable = open(ruta_archivo + "/datos.txt")
+ruta_archivo = "/home/javier/Documentos/Programas/Python/POOPython/datos.txt"
+miVariable = open(ruta_archivo)
 
-todasLasLineas = mi_variable.readlines()
-print(todasLasLineas)
+contenido = miVariable.readline()
+contenido = miVariable.readline()
+print(contenido)
 
-mi_variable.close()
+miVariable.close()

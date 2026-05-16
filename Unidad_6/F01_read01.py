@@ -9,9 +9,19 @@
     Para esta práctica vamos a crear un archivo de texto dentro de la carpeta 
     dónde se encuentra el programa para este ejemplo
     datos.txt
+
+    CONCEPTOS BÁSICOS: EL CICLO DE VIDA DE UN ARCHIVO
+    -------------------------------------------------
+
+    Todo manejo de archivos sigue tres pasos obligatorios: 
+
+            Abrir → Manipular → Cerrar.
+
+    Por defecto asume la operación de lectura
 """
-ruta_archivo = "/home/javier/Documentos/Programas/Python/POOPython/datos.txt"
-mi_variable = open(ruta_archivo, 'r')
+# podemos indicar solo el nombre del archivo y en automatico buscará dentro
+# del proyecto donde estamos                
+mi_variable = open("/home/javier/Documentos/Programas/Python/POOPython/datos.txt")
 
 print(mi_variable.read())
 mi_variable.close()

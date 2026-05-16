@@ -1,6 +1,6 @@
 """ MANEJO DE ARCHIVOS. 
 
-     Leer y copiar el contenido de un archivo en tro. 
+     Leer y copiar el contenido de un archivo en otro. 
 """
 dir_archivo1 = "/home/javier/Documentos/Programas/Python/POOPython/datos.txt"
 dir_archivo2 = "/home/javier/Documentos/Programas/Python/POOPython/datos2.txt"
