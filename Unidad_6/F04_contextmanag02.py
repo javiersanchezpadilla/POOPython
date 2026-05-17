@@ -1,6 +1,9 @@
-""" USO DE WITH, ARCHIVOS Y CONTEXT MANAGER EN PYTHON"""
+""" USO DE WITH, ARCHIVOS Y CONTEXT MANAGER EN PYTHON
 
-with open("notas.txt", "w") as archivo:
+    Agregar información al final de un archivo
+"""
+
+with open("notas.txt", "a") as archivo:
     archivo.write("Hola alumnos.")
     # Podemos hacer loque deseemos aquí adentro...
     # En cuanto el código sale de la sangría (tabulación), 

@@ -22,4 +22,3 @@ miVariable = open(ruta_archivo, 'r')    # <-- indicamos el modo lectura
 contenido = miVariable.read()
 print(contenido)
 miVariable.close()
-

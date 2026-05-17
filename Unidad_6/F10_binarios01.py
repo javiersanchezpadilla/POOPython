@@ -20,7 +20,7 @@
         archivo (sus bytes exactos), sin importar si es una foto de Acapulco 
         o una canción.
 
-    Ejemplo: Duplicar una Imagen (Clonación de bytes)
+    Ejemplo: DUPLICAR UNA IMAGEN (CLONACIÓN DE BYTES)
     La forma más sencilla de entender esto es copiando una imagen binaria de 
     un lugar a otro. No necesitamos saber cómo se dibuja un píxel; solo 
     necesitamos leer sus bytes del archivo original y escribirlos exactamente 

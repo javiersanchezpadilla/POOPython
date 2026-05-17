@@ -11,5 +11,4 @@ lista = ['Hola','Mundo','Esta','Es','Una','lista']
 for palabraEnLista in lista:
     archivo.writelines(palabraEnLista + '\n')
 
-
 archivo.close()

@@ -2,7 +2,7 @@
 
     OBJETO ITERABLE:
     ----------------
-    El archivo en si es un elemento iterable
+    El archivo en sí, es un elemento iterable
     NOTA: No olvidar abrir el archivo y cerrarlo despuúes de usarlo
 """
 ruta_archivo = "/home/javier/Documentos/Programas/Python/POOPython/datos.txt"

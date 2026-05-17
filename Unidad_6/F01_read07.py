@@ -1,5 +1,6 @@
 """ LECTURA DE ARCHIVOS DE TEXTO
 
+    Leer el contenido liena por linea (eliminar el \n)
     NOTA: No olvidar abrir el archivo y cerrarlo despuúes de usarlo
 """
 

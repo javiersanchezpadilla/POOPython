@@ -1,4 +1,4 @@
 Agregaré informacióna nuestro archivousando acentosen palabras como máximo
 mínimo, estación, educación, tecnológico
 Esta es otra linea
-y el final ...
+y el final ...Este sera el contenido del archivoEste sera el contenido del archivoEste sera el contenido del archivo
