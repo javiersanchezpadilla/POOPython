@@ -1,0 +1,10 @@
+{
+    "materia": "Estructura de Datos",
+    "semestre": 3,
+    "activo": true,
+    "alumnos": [
+        "Carlos",
+        "Ana",
+        "Luis"
+    ]
+}
