@@ -1,0 +1,4 @@
+INFO: Servidor iniciado
+ERROR: Conexión fallida en BD
+INFO: Reintentando
+ERROR: Timeout
