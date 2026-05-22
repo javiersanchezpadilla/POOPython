@@ -1,23 +1,15 @@
-""" USO DE WITH, ARCHIVOS Y CONTEXT MANAGER EN PYTHON
+""" MULTIPLES CONTEXT MANAGER
 
-    Ejemplo: Formateador de Reportes (Etiquetas HTML/Texto)
-    asegura que si abrimos una sección de diseño o un formato decorativo en 
-    consola, este se cierre correctamente al terminar, evitando dejar la 
-    pantalla distorsionada.
+    Leer tres archivos y combinarlos
 """
-class DiseñadorBloque:
-    def __init__(self, titulo):
-        self.titulo = titulo
+with open("datos.txt", "r") as f1, \
+     open("datos2.txt", "r") as f2, \
+     open("datos3.txt", "r") as f3:
+    
+    contenido1 = f1.read()
+    contenido2 = f2.read()
+    contenido3 = f3.read()
+    combinado = contenido1 + contenido2 + contenido3
+    print(combinado)
 
-    def __enter__(self):
-        print(f"\n=================== {self.titulo} ===================")
-        return None  # No necesitamos asignar nada a una variable con 'as'
-
-    def __exit__(self, tipo, valor, traza):
-        # Al salir, cerramos el bloque visual de manera simétrica
-        print("===================================================\n")
-
-# Uso del Diseñador
-with DiseñadorBloque("DATOS DEL ALUMNO"):
-    print("Nombre: Javier")
-    print("Matrícula: 20120987")
+print("Archivos leídos y cerrados automáticamente")

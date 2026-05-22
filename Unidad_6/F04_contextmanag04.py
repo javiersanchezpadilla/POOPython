@@ -1,45 +1,22 @@
-""" USO DE WITH, ARCHIVOS Y CONTEXT MANAGER EN PYTHON
+""" MULTIPLES CONTEXT MANAGERS
 
-    El contexto WITH se ejecuta de forma automática y son dos métodos los que 
-    se mandan a llamar.
+    ¿Podemos usar with para múltiples archivos separados por comas?
+    ---------------------------------------------------------------
+    Sí, se puede usar with para múltiples archivos separados por comas, y es 
+    una práctica muy recomendada porque hace el código más limpio y legible.
 
-    **) El método llamado __enter__() que es dónde se abre el archivo, así que 
-        en este método es dónde se abre el recurso.
-    **) El método llamado __exit__() que es el método encargado de cerrar el 
-        archivo de forma automática.
+    Nota: solo funciona de la version de Python 3.1 en adelante
 
-    Sin embargo, nosotros podemos crear nuestra propia clase para el manejo de 
-    estos recursos.
-    Vamos a crear un nuevo método llamado ManejoArchivos.py y creamos nuestra 
-    clase la cual no tiene que extender de ninguna otra clase ya que los 
-    métodos requeridos están implícitos en la clase object y con esto ya lo 
-    están heredando de la clase object directamente sin necesidad de 
-    especificarlo, con el simple hecho de declarar la clase ya se encuentra 
-    implícito.
-    Sin embargo si tiene que implementar (sobreescribir) dos métodos el método
-    __enter__() y el método __exit__() de la clase object (clase padre),
+    ¿Qué pasa aquí?
+    ---------------
 
-    Implementación en el archivo o módulo ManejoArchivod.py. Al momento de 
-    invocar esta clase con with estaremos haciendo uso del Context Manager, 
-    y de forma automática llamara cuando se requiera el método __enter__() y 
-    posteriormente el método __exit__()
+    **) Se abren dos archivos en la misma línea
+    **) Se separan por coma (`,)
+    **) Cada uno tiene su propia variable (archivo1 y archivo2)
+    **) Al salir del bloque with, ambos se cierran automáticamente
+
 """
-
-archivo_ruta = "/home/javier/Documentos/Programas/Python/POOPython/datos.txt"
-
-class ManejoArchivos:   
-    def __init__(self, nombre):
-        self.nombre = nombre        # recibimos el nombre del recurso en este 
-                                    # caso el nombre del archivo
-
-    def __enter__(self):            # Este metodo se hereda de la clase object
-        print('Obtenemos el recurso'.center(50,'-'))
-        self.nombre = open(self.nombre, 'r', encoding='utf8')
-        return self.nombre
-    
-                                    # Estos parámetros son obligatorios se 
-                                    # usen o no
-    def __exit__(self, tipo_exception, valor_excepcion, traza_error):
-        print('Cerramos el recurso'.center(50,'-'))
-        if self.nombre:     # Si este atributo aun apunta a un recurso lo cierra
-            self.nombre.close()
+with open("datos2.txt", "r") as archivo1, open("datos3.txt", "w") as archivo2:
+    contenido = archivo1.read()
+    archivo2.write(contenido)
+    # Ambos archivos se cierran automáticamente al salir

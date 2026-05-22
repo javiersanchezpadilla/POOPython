@@ -5,9 +5,9 @@
     1)  Transferencia de archivos (Sockets/Red): Cuando programas un servidor 
         que va a recibir o enviar imágenes o archivos adjuntos que los 
         usuarios suben.
-    2)  Procesamiento de Multimedia: Si en tus clases de interfaces gráficas o 
-        sistemas necesitan extraer los metadatos de una canción (título, 
-        artista) leyendo los bytes del final de un archivo MP3 (etiquetas ID3)
+    2)  Procesamiento de Multimedia: Extraer los metadatos de una canción 
+        (título, artista) leyendo los bytes del final de un archivo MP3 
+        (etiquetas ID3)
     3)  Criptografía y Compresión: Al diseñar algoritmos que necesitan aplicar 
         compuertas lógicas (AND, XOR) bit a bit a un archivo para encriptarlo.
 
