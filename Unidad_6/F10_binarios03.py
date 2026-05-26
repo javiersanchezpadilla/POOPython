@@ -23,15 +23,24 @@
     ¿Qué pasa en el disco duro? 
     ---------------------------
     Si intentamos abrir el archivo generado lineas_teclado.bin con un editor 
-    de texto plano o desde la terminal de Linux con un comando como cat lineas_teclado.bin, es probable que alcances a leer el texto de forma normal.
+    de texto plano o desde la terminal de Linux con un comando como cat 
+    lineas_teclado.bin, es probable que alcances a leer el texto de forma 
+    normal.
 
-¿Por qué pasa esto si es un archivo binario? Because la codificación utf-8 para caracteres occidentales (letras estándar del alfabeto) utiliza exactamente los mismos números binarios que el viejo código ASCII. Por lo tanto, los visualizadores de texto detectan esos bytes y los traducen automáticamente en pantalla.
+    ¿Por qué pasa esto si es un archivo binario? 
+    --------------------------------------------
+    Because la codificación utf-8 para caracteres occidentales (letras 
+    estándar del alfabeto) utiliza exactamente los mismos números binarios que
+    el viejo código ASCII. Por lo tanto, los visualizadores de texto detectan 
+    esos bytes y los traducen automáticamente en pantalla.
+    Sin embargo, para Python, la gran diferencia radica en el flujo de control
 
-Sin embargo, para Python, la gran diferencia radica en el flujo de control:
+    Al usar 'wb', le prohibimos a Python agregar caracteres ocultos de control
+    de formato de texto (como marcas de fin de archivo o conversiones automáticas 
+    de saltos de línea de Windows a Linux \r\n).
 
-Al usar 'wb', le prohibimos a Python agregar caracteres ocultos de control de formato de texto (como marcas de fin de archivo o conversiones automáticas de saltos de línea de Windows a Linux \r\n).
-
-El programa escribe y lee fielmente bit a bit lo que el usuario digitó, garantizando la integridad absoluta de los datos.
+    El programa escribe y lee fielmente bit a bit lo que el usuario capturó, 
+    garantizando la integridad absoluta de los datos.
 """
 from pathlib import Path
 
